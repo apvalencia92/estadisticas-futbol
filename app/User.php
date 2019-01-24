@@ -62,7 +62,7 @@ class User extends Authenticatable
     {
         if ($this->image) {
             if ($this->isA('espectador')) {
-                $tecnico = User::where('id',Auth::user()->belongs_to_user)->first();
+                $tecnico = User::where('id',$this->belongs_to_user)->first();
                 return asset("img/{$tecnico->email}/espectadores/{$this->id}" . '_' . camel_case($this->name) . $this->image);
             } else {
                 return asset("img/{$this->email}/perfil/{$this->id}" . '_' . camel_case($this->name) . $this->image);

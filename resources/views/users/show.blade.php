@@ -42,12 +42,12 @@
                         </ul>
                         <div class="form-group">
                             @listusuarios
-                            <a href="{{ route('users.edit',$user->id) }}" class="btn btn-info btn-md">Editar Perfil</a>
+                            <a href="{{ route('usuarios.edit',$user) }}" class="btn btn-info btn-md">Editar Perfil</a>
                             @crearespectador
-                            <a href="{{ route('users.create') }}" class="btn btn-secondary btn-md">Registrar
+                            <a href="{{ route('usuarios.create') }}" class="btn btn-secondary btn-md">Registrar
                                 Espectador</a>
                             @endcrearespectador
-                            <a href="{{ route('users.index') }}" class="btn btn-primary btn-md">Ver Espectadores</a>
+                            <a href="{{ route('usuarios.index') }}" class="btn btn-primary btn-md">Ver Espectadores</a>
 
                             @else
                                 <div class="text-left">
@@ -77,7 +77,7 @@
                 </div>
 
 
-                <form method="post" action="{{ route('users.updateimage',$user) }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('usuarios.updateimage',$user) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 

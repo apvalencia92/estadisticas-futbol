@@ -54,7 +54,7 @@ class UserController extends Controller
 
         $user = $request->createUser();
 
-        return redirect()->route('users.index')->withcreated('El espectador ha sido creado satisfactoriamente');
+        return redirect()->route('usuarios.index')->withcreated('El espectador ha sido creado satisfactoriamente');
     }
 
 
@@ -78,7 +78,7 @@ class UserController extends Controller
         $this->authorize('update', $user);
         $request->updateUser($user);
 
-        return redirect()->route('users.show', $user)
+        return redirect()->route('usuarios.show', $user)
             ->withedited('El usuario ha sido actualizado satisfactoriamente');
     }
 
@@ -90,7 +90,7 @@ class UserController extends Controller
         }
 
         $user->update(['image'=>$data['image']]);
-        return redirect()->route('users.show',$user)->withupdateprofile('Foto de perfil actualizada');
+        return redirect()->route('usuarios.show',$user)->withupdateprofile('Foto de perfil actualizada');
     }
 
 

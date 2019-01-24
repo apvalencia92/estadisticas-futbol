@@ -22,7 +22,7 @@
                         @endif
 
 
-                        <form method="post" action="{{ route('users.update',$user) }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('usuarios.update',$user) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 

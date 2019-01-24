@@ -44,9 +44,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="nav-item d-none d-sm-inline-block dropdown">
                 <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">Usuarios</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('users.index') }}">Ver</a>
+                    <a class="dropdown-item" href="{{ route('usuarios.index') }}">Ver</a>
                     @crearespectador
-                    <a class="dropdown-item" href="{{ route('users.create') }}">Registrar</a>
+                    <a class="dropdown-item" href="{{ route('usuarios.create') }}">Registrar</a>
                     @endcrearespectador
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
@@ -81,7 +81,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <span class="dropdown-header">Acciones</span>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ route('users.show', Auth::user()) }}" class="dropdown-item">
+                    <a href="{{ route('usuarios.show', Auth::user()) }}" class="dropdown-item">
                         <i class="fas fa-user-circle"></i>
                         Perfil
                     </a>
@@ -126,7 +126,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                          alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="{{ route('users.show',auth()->user()) }}" class="d-block">{{ Auth::user()->name }}</a>
+                    <a href="{{ route('usuarios.show',auth()->user()) }}" class="d-block">{{ Auth::user()->name }}</a>
                 </div>
             </div>
 
@@ -147,14 +147,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('users.index') }}" class="nav-link">
+                                <a href="{{ route('usuarios.index') }}" class="nav-link">
                                     <i class="fas fa-check-circle text-success"></i>
                                     <p>Listado de usuarios</p>
                                 </a>
                             </li>
                             @crearespectador
                             <li class="nav-item">
-                                <a href="{{ route('users.create') }}" class="nav-link">
+                                <a href="{{ route('usuarios.create') }}" class="nav-link">
                                     <i class="fas fa-check-circle text-success"></i>
                                     <p>Registrar espectador</p>
                                 </a>

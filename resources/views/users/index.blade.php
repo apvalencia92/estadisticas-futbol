@@ -39,11 +39,11 @@
                                     <td>{{ $user->email }}</td>
                                     {{--<td> {{ $user->roles->pluck('name')->implode(' - ') }} </td>--}}
                                     <td>
-                                        <form action="{{ route('users.delete', $user) }}" method="post">
+                                        <form action="{{ route('usuarios.destroy', $user) }}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <a class="btn btn-primary" href="{{ route('users.show',$user) }}">Ver más</a>
-                                            <a class="btn btn-mdb-color" href="{{ route('users.edit',$user) }}">Editar</a>
+                                            <a class="btn btn-primary" href="{{ route('usuarios.show',$user) }}">Ver más</a>
+                                            <a class="btn btn-mdb-color" href="{{ route('usuarios.edit',$user) }}">Editar</a>
                                             <input class="btn btn-danger m-0" type="submit" value="Eliminar">
                                         </form>
                                     </td>
@@ -59,7 +59,7 @@
 
                           @crearespectador
                         <div class="form-group">
-                            <a href="{{ route('users.create') }}" class="btn btn-info my-4">Registrar espectador</a>
+                            <a href="{{ route('usuarios.create') }}" class="btn btn-info my-4">Registrar espectador</a>
                         </div>
                         @endcrearespectador
 

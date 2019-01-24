@@ -23,7 +23,7 @@
                             </div>
                         @endif
 
-                        <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('usuarios.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             {{-- Nombre --}}

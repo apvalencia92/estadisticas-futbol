@@ -20,7 +20,7 @@
                                 Basicamente es un usuario que vas a crear para que los integrantes
                                 de tu equipo pueden visualizar las estadisticas del equipo, puedes registrar hasta 3
                                 espectadores</p>
-                            <a href="{{ route('users.create') }}"
+                            <a href="{{ route('usuarios.create') }}"
                                class="btn btn-outline-info waves-effect">Registrar</a>
                         </article>
                         @endcrearespectador
@@ -68,7 +68,7 @@
                 </div>
 
 
-                <form method="post" action="{{ route('users.updateimage',$user) }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('usuarios.updateimage',$user) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 

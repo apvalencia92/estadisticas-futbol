@@ -34,6 +34,7 @@ class createTest extends TestCase
     /** @test */
     function tecnicos_pueden_registrar_tres_espectadores()
     {
+        $this->withoutExceptionHandling();
 
         $tecnico = $this->createTecnico();
 
