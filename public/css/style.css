@@ -1,0 +1,16 @@
+.section_guest{
+    background-image: url("../img/welcome.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.content-welcome {
+    width: 100%;
+    height: 500px;
+    background-image: url("../img/welcome.jpg");
+    background-size: cover;
+    background-position: center;
+}
