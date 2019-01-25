@@ -14,7 +14,8 @@ class createTest extends TestCase
     protected $defaultData = [
         'name' => 'Alex Valencia',
         'email' => 'alexvalencia91@gmail.com',
-        'password' => '12345678'
+        'password' => '12345678',
+        'password_verify' => '12345678'
     ];
 
 
@@ -34,43 +35,36 @@ class createTest extends TestCase
     /** @test */
     function tecnicos_pueden_registrar_tres_espectadores()
     {
-        $this->withoutExceptionHandling();
 
-        $tecnico = $this->createTecnico();
+        $this->actingAs($this->createTecnico())
+            ->post('usuarios', $this->withData())
+            ->assertRedirect(route('usuarios.index'));
 
-        $this->actingAs($tecnico);
 
-        //1
-        $this->post('usuarios',$this->withData())->assertRedirect('home');
-
-        $usercreated = User::find(2);
-        $usercreated->assign('espectador');
-        $usercreated->equipos()->attach($tecnico->equipos()->first()->id);
-
-        $this->assertDatabaseHas('users',[
+        $this->assertDatabaseHas('users', [
             'name' => 'Alex Valencia',
-            'email' => 'alexvalencia91@gmail.com',
+            'email' => 'alexvalencia91@gmail.com'
         ]);
 
 
         //2
-        $this->post('usuarios',$this->withData(['email'=>'other@gmail.com']))->assertRedirect('home');
+        $this->post('usuarios', $this->withData(['email' => 'other@gmail.com']))->assertRedirect(route('usuarios.index'));
 
         $usercreated2 = User::find(3);
 
-        $this->assertDatabaseHas('users',[
+        $this->assertDatabaseHas('users', [
             'name' => $usercreated2->name,
             'email' => $usercreated2->email
         ]);
 
 
-     //3
+        //3
 
-        $this->post('usuarios',$this->withData(['email'=>'other2@gmail.com']))->assertRedirect('home');
+        $this->post('usuarios', $this->withData(['email' => 'other2@gmail.com']))->assertRedirect(route('usuarios.index'));
 
         $usercreated3 = User::find(4);
 
-        $this->assertDatabaseHas('users',[
+        $this->assertDatabaseHas('users', [
             'name' => $usercreated3->name,
             'email' => $usercreated3->email
         ]);
@@ -85,12 +79,12 @@ class createTest extends TestCase
         $this->actingAs($tecnico);
 
         //1
-        $this->post('usuarios',$this->withData(['email' => 'one@gmail.com']))->assertRedirect('home');
-        $this->post('usuarios',$this->withData(['email' => 'two@gmail.com']))->assertRedirect('home');
-        $this->post('usuarios',$this->withData(['email' => 'three@gmail.com']))->assertRedirect('home');
+        $this->post('usuarios', $this->withData(['email' => 'one@gmail.com']))->assertRedirect(route('usuarios.index'));
+        $this->post('usuarios', $this->withData(['email' => 'two@gmail.com']))->assertRedirect(route('usuarios.index'));
+        $this->post('usuarios', $this->withData(['email' => 'three@gmail.com']))->assertRedirect(route('usuarios.index'));
 
 
-        $this->post('usuarios',$this->withData(['email' => 'for@gmail.com']))
+        $this->post('usuarios', $this->withData(['email' => 'for@gmail.com']))
             ->assertStatus(403);
 
     }

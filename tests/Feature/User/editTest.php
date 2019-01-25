@@ -47,7 +47,7 @@ class editTest extends TestCase
                'password' => 'secret2'
            ]);
 
-       $response->assertRedirect(route('users.show',$espectador->id));
+       $response->assertRedirect(route('usuarios.show',$espectador->id));
 
        $this->assertCredentials([
            'name' => 'Espectador Editado',
