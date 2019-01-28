@@ -22,7 +22,7 @@
                         @endif
 
 
-                        <form method="post" action="{{ route('usuarios.update',$user) }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('usuarios.update',$usuario) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -33,7 +33,7 @@
                                         <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
                                     </div>
                                     <input type="text" name="name" id="name" class="form-control"
-                                           value="{{ old('name', $user->name) }}">
+                                           value="{{ old('name', $usuario->name) }}">
                                 </div>
                             </div>
 
@@ -46,7 +46,7 @@
                                         </span>
                                     </div>
                                     <input type="email" name="email" id="email" class="form-control"
-                                           value="{{ old('email',$user->email) }}">
+                                           value="{{ old('email',$usuario->email) }}">
                                 </div>
                             </div>
 
@@ -62,7 +62,7 @@
 
                             <figure>
                                 <img width="200" height="200"
-                                     :src="imagen == '' ? '{{ asset("{$user->getImage()}") }}' : imagen"
+                                     :src="imagen == '' ? '{{ asset("{$usuario->getImage()}") }}' : imagen"
                                      alt="Foto perfil de usuario">
                             </figure>
 

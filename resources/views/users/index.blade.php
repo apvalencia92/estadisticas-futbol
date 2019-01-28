@@ -33,17 +33,17 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($users as $user)
+                            @foreach($usuarios as $usuario)
                                 <tr>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $usuario->name }}</td>
+                                    <td>{{ $usuario->email }}</td>
                                     {{--<td> {{ $user->roles->pluck('name')->implode(' - ') }} </td>--}}
                                     <td>
-                                        <form action="{{ route('usuarios.destroy', $user) }}" method="post">
+                                        <form action="{{ route('usuarios.destroy', $usuario) }}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <a class="btn btn-primary" href="{{ route('usuarios.show',$user) }}">Ver más</a>
-                                            <a class="btn btn-mdb-color" href="{{ route('usuarios.edit',$user) }}">Editar</a>
+                                            <a class="btn btn-primary" href="{{ route('usuarios.show',$usuario) }}">Ver más</a>
+                                            <a class="btn btn-mdb-color" href="{{ route('usuarios.edit',$usuario) }}">Editar</a>
                                             <input class="btn btn-danger m-0" type="submit" value="Eliminar">
                                         </form>
                                     </td>

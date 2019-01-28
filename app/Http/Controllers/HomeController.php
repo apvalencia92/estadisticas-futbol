@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,10 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        $user = auth()->user();
-        $userCount = auth()->user()->espectadorCount();
-
-        return view('home',compact('userCount','user'));
+        $usuario = auth()->user();
+        return view('home',compact('usuario'));
     }
 }

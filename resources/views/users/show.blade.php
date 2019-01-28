@@ -27,22 +27,22 @@
                         <div class="text-center">
                             <img src="{{ $image }}" class="profile-user-img img-fluid img-circle" alt="Foto de perfil">
                         </div>
-                        <h3 class="profile-username text-center">{{ $user->name }}</h3>
+                        <h3 class="profile-username text-center">{{ $usuario->name }}</h3>
                         <p class="text-muted text-center">Informacion del usuario</p>
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Email</b> <a class="float-right">{{ $user->email }}</a>
+                                <b>Email</b> <a class="float-right">{{ $usuario->email }}</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Equipo</b> <a class="float-right">{{ $user->equipos()->value('name') }}</a>
+                                <b>Equipo</b> <a class="float-right">{{ $usuario->equipos()->value('name') }}</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Rol</b><a class="float-right">{{ $user->roles->pluck('name')->implode(' - ') }}</a>
+                                <b>Rol</b><a class="float-right">{{ $usuario->roles->pluck('name')->implode(' - ') }}</a>
                             </li>
                         </ul>
                         <div class="form-group">
                             @listusuarios
-                            <a href="{{ route('usuarios.edit',$user) }}" class="btn btn-info btn-md">Editar Perfil</a>
+                            <a href="{{ route('usuarios.edit',$usuario) }}" class="btn btn-info btn-md">Editar Perfil</a>
                             @crearespectador
                             <a href="{{ route('usuarios.create') }}" class="btn btn-secondary btn-md">Registrar
                                 Espectador</a>
@@ -77,7 +77,7 @@
                 </div>
 
 
-                <form method="post" action="{{ route('usuarios.updateimage',$user) }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('usuarios.actualizarimagen',$usuario) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -85,12 +85,12 @@
                         <div class="form-group">
                             <label for="image">Foto de perfil</label>
                             <input type="file" name="image" id="image" class="form-control-file"
-                                   value="{{old('image', $user->image)}}" @change="onFileSelected">
+                                   value="{{old('image', $usuario->image)}}" @change="onFileSelected">
                         </div>
 
                         <figure>
                             <img width="200" height="200"
-                                 :src="imagen == '' ? '{{ asset("{$user->getImage()}") }}' : imagen "
+                                 :src="imagen == '' ? '{{ asset("{$usuario->getImage()}") }}' : imagen "
                                  alt="Foto perfil de usuario">
                         </figure>
 

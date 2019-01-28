@@ -8,6 +8,7 @@
                 <div class="card">
                     <div class="card-header info-color-dark text-center text-white">
                         <h1 class="lead">BIENVENIDO A <b>ESTADISTICAS FUTBOLISTICAS</b></h1>
+
                     </div>
                     <div class="card-body">
 
@@ -68,20 +69,20 @@
                 </div>
 
 
-                <form method="post" action="{{ route('usuarios.updateimage',$user) }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('usuarios.actualizarimagen',$usuario) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-
                     <div class="modal-body mx-3">
                         <div class="form-group">
                             <label for="image">Foto de perfil</label>
                             <input type="file" name="image" id="image" class="form-control-file"
-                                   value="{{old('image', $user->image)}}" @change="onFileSelected">
+                                   value="{{old('image', $usuario->image)}}" @change="onFileSelected">
                         </div>
 
                         <figure>
                             <img width="200" height="200"
-                                 :src="imagen == '' ? '{{ asset("{$user->getImage()}") }}' : imagen "
+                                 :src="imagen == '' ? '{{ asset("{$usuario->getImage()}") }}' : imagen "
+                                 :src="imagen == '' ? '{{ asset("{$usuario->getImage()}") }}' : imagen "
                                  alt="Foto perfil de usuario">
                         </figure>
 

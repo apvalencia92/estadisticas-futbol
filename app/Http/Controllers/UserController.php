@@ -26,7 +26,7 @@ class UserController extends Controller
     public function index()
     {
 
-        $users = User::query()
+        $usuarios = User::query()
             ->with('roles')
             ->Where('belongs_to_user', auth()->id())
             ->orWhereHas('roles', function ($query) {
@@ -36,7 +36,7 @@ class UserController extends Controller
             })->paginate();
 
 
-        return view('users.index', compact('users'));
+        return view('users.index', compact('usuarios'));
     }
 
     public function create()
@@ -58,47 +58,47 @@ class UserController extends Controller
     }
 
 
-    public function show(User $user)
+    public function show(User $usuario)
     {
-        $image = $user->getImage();
+        $image = $usuario->getImage();
 
-        return view('users.show', compact('user', 'image'));
+        return view('users.show', compact('usuario', 'image'));
     }
 
 
-    public function edit(User $user)
+    public function edit(User $usuario)
     {
-        $this->authorize('update', $user);
-        return view('users.edit', compact('user'));
+        $this->authorize('update', $usuario);
+        return view('users.edit', compact('usuario'));
     }
 
 
-    public function update(UserEditRequest $request, User $user)
+    public function update(UserEditRequest $request, User $usuario)
     {
-        $this->authorize('update', $user);
-        $request->updateUser($user);
+        $this->authorize('update', $usuario);
+        $request->updateUser($usuario);
 
-        return redirect()->route('usuarios.show', $user)
+        return redirect()->route('usuarios.show', $usuario)
             ->withedited('El usuario ha sido actualizado satisfactoriamente');
     }
 
-    public function update_image(User $user, Request $request)
+    public function update_image(User $usuario, Request $request)
     {
         if ($request->hasFile('image')) {
-            $this->tratarImagen($request->file('image'), $user);
+            $this->tratarImagen($request->file('image'), $usuario);
             $data['image'] = "." . $request->file('image')->getClientOriginalExtension();
         }
 
-        $user->update(['image'=>$data['image']]);
-        return redirect()->route('usuarios.show',$user)->withupdateprofile('Foto de perfil actualizada');
+        $usuario->update(['image'=>$data['image']]);
+        return redirect()->route('usuarios.show',$usuario)->withupdateprofile('Foto de perfil actualizada');
     }
 
 
-    public function destroy(User $user)
+    public function destroy(User $usuario)
     {
-        $this->isUserImage($user);
-        $user->equipos()->detach();
-        $user->delete();
+        $this->isUserImage($usuario);
+        $usuario->equipos()->detach();
+        $usuario->delete();
         return redirect('usuarios');
     }
 }
