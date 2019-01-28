@@ -9,6 +9,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/ota', function (){
+   return 'Otra vez';
+});
+
 
 //Route::pattern('users','[0-9]+');
 Route::resource('usuarios', 'Usercontroller')->middleware('auth');
