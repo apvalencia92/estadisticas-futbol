@@ -14,6 +14,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('usuarios', 'Usercontroller')->middleware('auth');
 Route::put('usuarios/picture/{usuario}', 'UserController@update_image')->name('usuarios.actualizarimagen');
 
+Route::get('equipos',function(){
+   return 'Modulo de equipos';
+});
+
 
 //Route::middleware(['auth'])->prefix('usuarios/')->group(function () {
 //
