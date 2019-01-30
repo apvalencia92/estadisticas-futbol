@@ -30,6 +30,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
 
+<!--============================
+         MENU HORIZONTAL
+==============================-->
+
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
         <!-- Left navbar links -->
@@ -103,6 +107,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         </ul>
     </nav>
+
+    <!--============================
+             MENU VERTICAL
+    ==============================-->
+
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
@@ -165,6 +174,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     @endlistusuarios
                     <li class="nav-item">
                         <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>
+                                Equipo
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @can('index', \App\Equipo::class)
+                            <li class="nav-item">
+                                <a href="{{ route('equipos.index') }}" class="nav-link">
+                                    <i class="fas fa-check-circle text-success"></i>
+                                    <p>Listado de equipos</p>
+                                </a>
+                            </li>
+                            @endcan
+                            <li class="nav-item">
+                                <a href="{{ route('equipos.show', Auth::user()->getEquipo()) }}" class="nav-link">
+                                    <i class="fas fa-check-circle text-success"></i>
+                                    <p>Mi equipo</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-th"></i>
                             <p>
                                 Simple Link
@@ -172,12 +207,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </p>
                         </a>
                     </li>
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
         </div>
         <!-- /.sidebar -->
     </aside>
+
+
+    <!--============================
+        CONTENIDO DE LA PAGINA
+    ==============================-->
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -206,6 +247,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
+
+
+
+    <!--============================
+               ASIDE
+    ==============================-->
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

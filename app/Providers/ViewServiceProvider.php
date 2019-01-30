@@ -21,7 +21,7 @@ class ViewServiceProvider extends ServiceProvider
         });
 
         Blade::if('tablausuarios', function () {
-            return optional(auth()->user())->espectadorCount() == 0;
+            return optional(auth()->user())->isNotAn('admin') && optional(auth()->user())->espectadorCount() == 0;
         });
 
 

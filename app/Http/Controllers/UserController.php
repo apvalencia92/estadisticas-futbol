@@ -39,6 +39,8 @@ class UserController extends Controller
         return view('users.index', compact('usuarios'));
     }
 
+
+
     public function create()
     {
         $this->authorize('create', User::class);
@@ -60,8 +62,9 @@ class UserController extends Controller
 
     public function show(User $usuario)
     {
-        $image = $usuario->getImage();
+        $this->authorize('view', $usuario);
 
+        $image = $usuario->getImage();
         return view('users.show', compact('usuario', 'image'));
     }
 
@@ -89,8 +92,8 @@ class UserController extends Controller
             $data['image'] = "." . $request->file('image')->getClientOriginalExtension();
         }
 
-        $usuario->update(['image'=>$data['image']]);
-        return redirect()->route('usuarios.show',$usuario)->withupdateprofile('Foto de perfil actualizada');
+        $usuario->update(['image' => $data['image']]);
+        return redirect()->route('usuarios.show', $usuario)->withupdateprofile('Foto de perfil actualizada');
     }
 
 

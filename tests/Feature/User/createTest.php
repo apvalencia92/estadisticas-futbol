@@ -53,8 +53,7 @@ class createTest extends TestCase
         $usercreated2 = User::find(3);
 
         $this->assertDatabaseHas('users', [
-            'name' => $usercreated2->name,
-            'email' => $usercreated2->email
+            'email' => 'other@gmail.com'
         ]);
 
 
@@ -65,8 +64,7 @@ class createTest extends TestCase
         $usercreated3 = User::find(4);
 
         $this->assertDatabaseHas('users', [
-            'name' => $usercreated3->name,
-            'email' => $usercreated3->email
+            'email' => 'other2@gmail.com'
         ]);
 
     }

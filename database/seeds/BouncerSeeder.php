@@ -1,5 +1,6 @@
 <?php
 
+use App\Equipo;
 use App\User;
 use Illuminate\Database\Seeder;
 use Silber\Bouncer\BouncerFacade as Bouncer;

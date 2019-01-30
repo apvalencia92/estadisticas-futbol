@@ -38,6 +38,7 @@ class UsersTableSeeder extends Seeder
 
 
         factory(User::class)->times(19)->create()->each(function ($user){
+            $user->assign('tecnico');
             $user->equipos()->create(factory(Equipo::class)->raw());
         });
     }

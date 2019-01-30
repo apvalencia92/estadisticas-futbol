@@ -74,23 +74,10 @@ class User extends Authenticatable
 
     }
 
-
-
-//    }
-
-//        if ($user->isA('tecnico')) {
-//            if ($this->image) {
-//                return asset("img/{$this->email}/{$this->id}" . '_' . camel_case($this->name) . $this->image);
-//            } else {
-//                return asset('img/player-default.jpg');
-//            }
-//        } elseif ($user->isAn('espectador')) {
-//            if ($this->image) {
-//                return asset("img/{$this->email}/{$user->email}/{$this->id}" . '_' . camel_case($this->name) . $this->image);
-//            } else {
-//                return asset('img/player-default.jpg');
-//            }
-//        }
+    public function getEquipo()
+    {
+        return $this->equipos()->first();
+    }
 
 
 }
