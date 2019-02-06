@@ -62,6 +62,7 @@ class UserController extends Controller
 
     public function show(User $usuario)
     {
+
         $this->authorize('view', $usuario);
 
         $image = $usuario->getImage();

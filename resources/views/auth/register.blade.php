@@ -10,16 +10,17 @@
                             <strong>Formulario de registro</strong>
                         </h5>
                         <div class="card-body px-lg-5 pt-0">
-                            <form method="POST" action="{{ route('register') }}" class="text-center"
+                            <form method="POST" action="{{ route('register') }}"
                                   style="color: #757575;">
                             @csrf
 
                             <!-- name -->
                                 <div class="md-form">
+                                    <i class="fas fa-user prefix active"></i>
                                     <input type="text" id="name" name="name"
                                            class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}"
                                            value="{{ old('name') }}" required>
-                                    <label for="name">Nombre</label>
+                                    <label for="name" class="font-weight-light">Nombre</label>
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -30,10 +31,11 @@
 
                                 <!-- email -->
                                 <div class="md-form">
+                                    <i class="fas fa-envelope prefix active"></i>
                                     <input type="email" id="email" name="email"
                                            class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}"
                                            value="{{ old('email') }}" required>
-                                    <label for="email">Correo electronico</label>
+                                    <label for="email" class="font-weight-light">Correo electronico</label>
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -44,10 +46,11 @@
 
                                 <!-- password -->
                                 <div class="md-form">
+                                    <i class="fas fa-key prefix active"></i>
                                     <input type="password" id="password" name="password"
                                            class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
                                            required>
-                                    <label for="password">Contraseña</label>
+                                    <label class="font-weight-light" for="password">Contraseña</label>
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -57,19 +60,21 @@
 
                                 <!-- password-confirm -->
                                 <div class="md-form">
+                                    <i class="fas fa-key prefix active"></i>
                                     <input type="password" id="password-confirm" name="password-confirm"
                                            class="form-control"
                                            required>
-                                    <label for="password-confirm">Repetir Contraseña</label>
+                                    <label for="password-confirm" class="font-weight-light">Repetir Contraseña</label>
                                 </div>
 
 
                                 <!-- name_team -->
                                 <div class="md-form">
+                                    <i class="fas fa-futbol prefix active"></i>
                                     <input type="text" id="name_team" name="name_team"
                                            class="form-control {{ $errors->has('name_team') ? ' is-invalid' : '' }}"
                                            value="{{ old('name_team') }}" required>
-                                    <label for="name_team">Nombre del equipo</label>
+                                    <label for="name_team" class="font-weight-light">Nombre del equipo</label>
                                     @if ($errors->has('name_team'))
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('name_team') }}</strong>
@@ -77,7 +82,10 @@
                                     @endif
                                 </div>
 
-                                <button class="btn btn-info btn-block my-4" type="submit">Registrarse</button>
+                                <div class="form-group text-center">
+                                    <button class="btn btn-info my-4" type="submit">Registrarse</button>
+                                </div>
+
 
                                 {{--<div class="form-group row mb-0">--}}
                                 {{--<div class="col-md-6 offset-md-4">--}}

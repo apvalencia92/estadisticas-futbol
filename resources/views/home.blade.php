@@ -36,6 +36,9 @@
                         </div>
                         @endfotoperfil
 
+                        @tecnico
+                        <a href="{{ route('equipos.edit',$equipo) }}" class="btn btn-link">Actualizar informacion del equipo</a>
+                        @endtecnico
 
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">

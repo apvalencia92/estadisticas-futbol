@@ -13,19 +13,20 @@ class EquipoPolicy
     /**
      * Determine whether the user can view the equipo.
      *
-     * @param  \App\User  $user
-     * @param  \App\Equipo  $equipo
+     * @param  \App\User $user
+     * @param  \App\Equipo $equipo
      * @return mixed
      */
     public function view(User $user, Equipo $equipo)
     {
-        return $user->id == $equipo->getIdUser();
+       return $equipo->doBelongthisEquipo($user);
+//        return $user->id == $equipo->getIdUser() || $user->canEspectadorViewEquipo($equipo);
     }
 
     /**
      * Determine whether the user can create equipos.
      *
-     * @param  \App\User  $user
+     * @param  \App\User $user
      * @return mixed
      */
     public function create(User $user)
@@ -36,20 +37,20 @@ class EquipoPolicy
     /**
      * Determine whether the user can update the equipo.
      *
-     * @param  \App\User  $user
-     * @param  \App\Equipo  $equipo
+     * @param  \App\User $user
+     * @param  \App\Equipo $equipo
      * @return mixed
      */
     public function update(User $user, Equipo $equipo)
     {
-        //
+        return $user->id == $equipo->getIdUser();
     }
 
     /**
      * Determine whether the user can delete the equipo.
      *
-     * @param  \App\User  $user
-     * @param  \App\Equipo  $equipo
+     * @param  \App\User $user
+     * @param  \App\Equipo $equipo
      * @return mixed
      */
     public function delete(User $user, Equipo $equipo)
@@ -60,8 +61,8 @@ class EquipoPolicy
     /**
      * Determine whether the user can restore the equipo.
      *
-     * @param  \App\User  $user
-     * @param  \App\Equipo  $equipo
+     * @param  \App\User $user
+     * @param  \App\Equipo $equipo
      * @return mixed
      */
     public function restore(User $user, Equipo $equipo)
@@ -72,8 +73,8 @@ class EquipoPolicy
     /**
      * Determine whether the user can permanently delete the equipo.
      *
-     * @param  \App\User  $user
-     * @param  \App\Equipo  $equipo
+     * @param  \App\User $user
+     * @param  \App\Equipo $equipo
      * @return mixed
      */
     public function forceDelete(User $user, Equipo $equipo)

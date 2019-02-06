@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class createTest extends TestCase
 {
-    use RefreshDatabase;
+
 
     protected $defaultData = [
         'name' => 'Alex Valencia',

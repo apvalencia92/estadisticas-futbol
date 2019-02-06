@@ -8,9 +8,12 @@
             <div class="col-md-6">
 
 
-                <div class="card card-info card-outline">
+                <div class="card">
+                    <h5 class="card-header info-color white-text text-center py-4">
+                        <strong>Detalles del usuario</strong>
+                    </h5>
 
-                    <div class="card-body box-profile">
+                    <div class="card-body py-4">
 
                         @if(session('edited'))
                             <div class="alert alert-success" role="alert">
@@ -24,10 +27,22 @@
                         @endif
 
 
-                        <div class="text-center">
-                            <img src="{{ $image }}" class="profile-user-img img-fluid img-circle" alt="Foto de perfil">
-                        </div>
-                        <h3 class="profile-username text-center">{{ $usuario->name }}</h3>
+                            <div class="text-center">
+                                <figure>
+                                    <img width="200" height="200"
+                                         src="{{ $image }}"
+                                         alt="Imagen de perfil">
+                                </figure>
+                            </div>
+
+
+
+
+
+
+
+
+                            <h3 class="profile-username text-center">{{ $usuario->name }}</h3>
                         <p class="text-muted text-center">Informacion del usuario</p>
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">

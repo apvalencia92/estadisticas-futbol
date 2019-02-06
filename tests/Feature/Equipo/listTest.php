@@ -6,9 +6,9 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class listTest extends TestCase
+class clear extends TestCase
 {
-    use RefreshDatabase;
+
 
     /** @test */
     function admin_pueden_listar_todos_los_equipos()
@@ -55,6 +55,26 @@ class listTest extends TestCase
             });
 
     }
+
+
+
+    /** @test */
+    function tecnicos_no_pueden_ver_el_detalle_de_otro_equipo()
+    {
+        $tecnico = $this->createTecnico();
+        $tecnico2 = $this->createTecnico();
+        $equipo2 = $tecnico2->equipos()->first();
+
+
+        $this->actingAs($tecnico)
+            ->get("equipos/{$equipo2->id}")
+            ->assertStatus(403);
+    }
+
+
+
+
+
 
 
 }

@@ -51,7 +51,7 @@ trait ImageTrait
         }
 
         if ($user->isAn('espectador')) {
-            $tecnico = User::where('id',$user->belongs_to_user)->first();
+            $tecnico = User::where('id', $user->belongs_to_user)->first();
             Image::make($file)
                 ->resize(200, 200)
                 ->save("img/{$tecnico->email}/espectadores/" . $file_name);
@@ -69,7 +69,7 @@ trait ImageTrait
             if ($user->isAn('tecnico')) {
                 File::delete("img/{$user->email}/perfil/" . $user->id . '_' . $name);
             } elseif ($user->isAn('espectador')) {
-                $tecnico = User::where('id',$user->belongs_to_user)->first();
+                $tecnico = User::where('id', $user->belongs_to_user)->first();
                 File::delete("img/{$tecnico->email}/espectadores/" . $user->id . '_' . $name . $user->image);
             }
         }
@@ -80,12 +80,11 @@ trait ImageTrait
     {
 
         if ($user->isAn('espectador')) {
-            $tecnico = User::where('id',$user->belongs_to_user)->first();
+            $tecnico = User::where('id', $user->belongs_to_user)->first();
             if (!File::exists("img/{$tecnico->email}")) {
                 File::makeDirectory("img/{$tecnico->email}");
                 File::makeDirectory("img/{$tecnico->email}/espectadores");
-            }
-            else {
+            } else {
 
                 if (File::exists("img/{$tecnico->email}/espectadores")) {
                     return;
@@ -98,7 +97,10 @@ trait ImageTrait
             File::makeDirectory("img/{$user->email}");
             File::makeDirectory("img/{$user->email}/perfil");
         } else {
-            File::makeDirectory("img/{$user->email}/perfil");
+            if (!File::exists("img/{$user->email}/perfil")) {
+                File::makeDirectory("img/{$user->email}/perfil");
+            }
+
         }
     }
 

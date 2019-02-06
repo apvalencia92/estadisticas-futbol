@@ -9,11 +9,12 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class listTest extends TestCase
 {
-    use RefreshDatabase;
 
     /** @test */
     function administradores_pueden_ver_listado_de_tecnicos()
     {
+        $this->withoutExceptionHandling();
+
         $admin = $this->createAdmin();
 
         $usuario = factory(User::class)->create();

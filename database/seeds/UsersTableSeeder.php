@@ -19,6 +19,8 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $admin->assign('admin');
+
+
         $admin->assign('tecnico');
 
         $admin->equipos()->create([ 'name' => 'Independiente']);

@@ -73,14 +73,10 @@ class UserCreateRequest extends FormRequest
 
             if ($this->hasFile('image')) {
                 $data['image'] = "." . $this->file('image')->getClientOriginalExtension();
-
                 $user->update(['image'=>$data['image']]);
                 $this->tratarImagen($this->file('image'), $user);
 
             }
-
-
-
 
             return $user;
 

@@ -11,7 +11,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class editTest extends TestCase
 {
 
-    use RefreshDatabase;
 
    /** @test */
    function tecnicos_pueden_ver_formulario_para_editar_informacion_de_los_espectadores()

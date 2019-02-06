@@ -30,9 +30,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
 
-<!--============================
-         MENU HORIZONTAL
-==============================-->
+    <!--============================
+             MENU HORIZONTAL
+    ==============================-->
 
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
@@ -182,15 +182,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             @can('index', \App\Equipo::class)
-                            <li class="nav-item">
-                                <a href="{{ route('equipos.index') }}" class="nav-link">
-                                    <i class="fas fa-check-circle text-success"></i>
-                                    <p>Listado de equipos</p>
-                                </a>
-                            </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('equipos.index') }}" class="nav-link">
+                                        <i class="fas fa-check-circle text-success"></i>
+                                        <p>Listado de equipos</p>
+                                    </a>
+                                </li>
                             @endcan
                             <li class="nav-item">
-                                <a href="{{ route('equipos.show', Auth::user()->getEquipo()) }}" class="nav-link">
+                                <a href="{{ route('equipos.show',  ['equipo' => Auth::user()->getEquipo()] ) }}"
+                                   class="nav-link">
                                     <i class="fas fa-check-circle text-success"></i>
                                     <p>Mi equipo</p>
                                 </a>
@@ -247,8 +248,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
-
 
 
     <!--============================

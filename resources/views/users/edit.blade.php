@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <h5 class="card-header info-color white-text text-center py-4">
+                    <h5 class="card-header light-blue white-text text-center py-4">
                         <strong>Editar espectador</strong>
                     </h5>
                     <div class="card-body">
@@ -22,79 +22,57 @@
                         @endif
 
 
-                        <form method="post" action="{{ route('usuarios.update',$usuario) }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('usuarios.update',$usuario) }}"
+                              enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
-                            <div class="form-group">
-                                <label for="name">Nombre</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
-                                    </div>
-                                    <input type="text" name="name" id="name" class="form-control"
-                                           value="{{ old('name', $usuario->name) }}">
-                                </div>
+                            <div class="md-form">
+                                <i class="fas fa-user-alt prefix active"></i>
+                                <input type="text" name="name" id="name" class="form-control"
+                                       value="{{ old('name', $usuario->name) }}">
+                                <label for="name" class="font-weight-light">Nombre</label>
                             </div>
 
-                            <div class="form-group">
-                                <label for="email">Correo electronico</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="far fa-envelope"></i>
-                                        </span>
-                                    </div>
-                                    <input type="email" name="email" id="email" class="form-control"
-                                           value="{{ old('email',$usuario->email) }}">
-                                </div>
+                            <div class="md-form">
+                                <i class="far fa-envelope prefix active"></i>
+                                <input type="email" name="email" id="email" class="form-control"
+                                       value="{{ old('email',$usuario->email) }}">
+                                <label class="font-weight-light" for="email">Correo electronico</label>
                             </div>
 
                             <!--================================================
                                          Foto de perfil
                             ================================================!-->
-
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Foto de perfil</label>
-                                <input type="file" name="image" id="image" class="form-control-file"
-                                       value="" @change="onFileSelected">
-                            </div>
-
-                            <figure>
-                                <img width="200" height="200"
-                                     :src="imagen == '' ? '{{ asset("{$usuario->getImage()}") }}' : imagen"
-                                     alt="Foto perfil de usuario">
-                            </figure>
-
-
-                            <div class="form-group">
-                                <label for="password">Contraseña</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-key"></i>
-                                        </span>
-                                    </div>
-                                    <input type="password" name="password" id="password" class="form-control">
+                            <div style="margin: 40px 0">
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Foto de perfil</label>
+                                    <input type="file" name="image" id="image" class="form-control-file"
+                                           value="" @change="onFileSelected">
                                 </div>
+
+                                <figure>
+                                    <img width="200" height="200"
+                                         :src="imagen == '' ? '{{ asset("{$usuario->getImage()}") }}' : imagen"
+                                         alt="Foto perfil de usuario">
+                                </figure>
                             </div>
 
-                            <div class="form-group">
-                                <label for="password-confirm">Repetir contraseña</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                           <i class="fas fa-key"></i>
-                                        </span>
-                                    </div>
-                                    <input type="password" name="password-confirm" id="password-confirm"
-                                           class="form-control">
-                                </div>
+                            <div class="md-form">
+                                <i class="fas fa-key prefix grey-text"></i>
+                                <input type="password" name="password" id="password" class="form-control">
+                                <label for="password" class="font-weight-light">Contraseña</label>
+                            </div>
+
+                            <div class="md-form">
+                                <i class="fas fa-key prefix grey-text"></i>
+                                <input type="password" name="password-confirm" id="password-confirm" class="form-control">
+                                <label for="password-confirm" class="font-weight-light">Repetir contraseña</label>
                             </div>
 
 
-                            <div class="form-group">
-                                <input type="submit" value="Actualizar" class="btn btn-primary">
+                            <div class="form-group text-center">
+                                <input type="submit" value="Actualizar" class="btn light-blue">
                             </div>
                         </form>
                     </div>

@@ -21,7 +21,8 @@ class ViewServiceProvider extends ServiceProvider
         });
 
         Blade::if('tablausuarios', function () {
-            return optional(auth()->user())->isNotAn('admin') && optional(auth()->user())->espectadorCount() == 0;
+            $user = auth()->user();
+            return optional($user)->isAn('tecnico') && optional($user)->espectadorCount() == 0;
         });
 
 
@@ -29,11 +30,14 @@ class ViewServiceProvider extends ServiceProvider
             return optional(auth()->user())->isAn('admin') || optional(auth()->user())->isAn('tecnico');
         });
 
+        Blade::if('tecnico',function(){
+           return optional(auth()->user())->isAn('tecnico');
+        });
+
         Blade::if('fotoperfil', function () {
             return  auth()->user()->image == null;
 //            return optional(auth()->user())->isAn('espectador') || (optional(auth()->user())->isAn('Tecnico') || auth()->user()->image == null);
         });
-
 
     }
 

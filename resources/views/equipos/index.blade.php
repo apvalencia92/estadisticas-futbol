@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <h5 class="card-header info-color white-text text-center py-4">
+                    <h5 class="card-header light-blue white-text text-center py-4">
                         <strong>Listado de equipos</strong>
                     </h5>
 

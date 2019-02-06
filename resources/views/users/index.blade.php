@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <h5 class="card-header info-color white-text text-center py-4">
+                    <h5 class="card-header light-blue white-text text-center py-4">
                         <strong>Listado de usuarios</strong>
                     </h5>
 
@@ -59,7 +59,7 @@
 
                           @crearespectador
                         <div class="form-group">
-                            <a href="{{ route('usuarios.create') }}" class="btn btn-info my-4">Registrar espectador</a>
+                            <a href="{{ route('usuarios.create') }}" class="btn btn-blue waves-effect waves-light my-4">Registrar espectador</a>
                         </div>
                         @endcrearespectador
 
