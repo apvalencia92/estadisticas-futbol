@@ -26,5 +26,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('equipos/{equipo}/edit', 'EquipoController@edit')->name('equipos.edit');
     Route::put('equipos/{equipo}','EquipoController@update')->name('equipos.update');
+
+
+    Route::resource('jugadores','JugadorController');
+
+
 });
 
